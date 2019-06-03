@@ -1,9 +1,14 @@
 import keyboard
 import os
+import time
 
-print("Please press Ctrl+Shift+1 to copy the path to the current screenshot saved to file.")
+def save_edit_screenshot():
+  time.sleep(0.5)
+  keyboard.press_and_release("prtscn")
+  dir_path = os.path.dirname(os.path.realpath(__file__))
+  os.startfile(dir_path + "\saveClipboardImage.bat")
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+print("Please press Alt+E to copy the path to the current screenshot saved to file.")
 
-keyboard.add_hotkey('ctrl+shift+1', lambda: os.startfile(dir_path + "\saveClipboardImage.bat"))
+keyboard.add_hotkey('alt+E', lambda: save_edit_screenshot())
 keyboard.wait()

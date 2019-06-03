@@ -7,6 +7,8 @@ if ($([System.Windows.Forms.Clipboard]::ContainsImage())) {
 
 	[System.Drawing.Bitmap]$image.Save($filename, [System.Drawing.Imaging.ImageFormat]::Png)
 
+	mspaint "$filename"
+	
 	"$filename" | clip
 } else {
 	"nil" | clip
